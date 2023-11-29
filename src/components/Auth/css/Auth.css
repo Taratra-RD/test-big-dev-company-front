@@ -1,0 +1,83 @@
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.auth--auth {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-shadow: 1px 2px 5px grey;
+  width: 40rem;
+  height: 30rem;
+  border-radius: 0.5rem;
+}
+
+.auth--left,
+.auth--right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth--left {
+  width: 45%;
+  background-image: url(../../../assets/images/sign\ up-07.jpg);
+  background-size: 130% 65%;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 45%;
+}
+
+.auth--right {
+  width: 55%;
+}
+
+.auth--title {
+  font-size: 2.5rem;
+}
+
+.auth--right form {
+  width: 80%;
+  padding-inline: 3% 0%;
+}
+
+.auth--right .username,
+.auth--right .password {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth--right input {
+  height: 2.2rem;
+  width: 98%;
+  font-size: 16px;
+  margin-block: 0.5rem 0.5rem;
+  border-color: gray;
+  border-width: 1px;
+  border-radius: 0.2rem;
+  padding-inline: 0.3rem 0;
+}
+
+.auth--right input:focus-visible {
+  outline: 0px;
+}
+
+.auth--right button {
+  height: 2.5rem;
+  width: 100%;
+  font-size: 16px;
+  margin-block: 1.2rem 0.5rem;
+  border-radius: 0.2rem;
+  border: none;
+  box-shadow: 1px 2px 5px grey;
+}
+
+.auth--right button:hover {
+  box-shadow: 2px 3px 5px grey;
+  font-weight: 600;
+}
