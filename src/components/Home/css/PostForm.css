@@ -1,0 +1,67 @@
+@media (max-width: 100000px) {
+  .post--form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 1px 2px 5px grey;
+    width: 20rem;
+    height: 15rem;
+    margin: 1rem;
+    padding-block: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    padding-inline: 0.3rem 0.3rem;
+  }
+
+  .post--form--title {
+    height: 15%;
+    padding-inline: 0.3rem 0;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85%;
+  }
+
+  .form div {
+    display: flex;
+    justify-content: center;
+  }
+
+  .form--title--input {
+    height: 2.2rem;
+    width: 90%;
+    font-size: 16px;
+    margin-block: 0.5rem 0.5rem;
+    margin-inline: 3% 3%;
+    border-color: gray;
+    border-width: 1px;
+    border-radius: 0.2rem;
+    padding-inline: 0.3rem 0;
+  }
+
+  .form--content--text {
+    height: 3rem;
+    width: 90%;
+    font-size: 16px;
+    margin-block: 0rem 0.5rem;
+    margin-inline: 3% 3%;
+    border-color: gray;
+    border-width: 1px;
+    border-radius: 0.2rem;
+    padding-inline: 0.3rem 0;
+  }
+
+  .form--button {
+    height: 2.5rem;
+    width: 92%;
+    font-size: 16px;
+    margin-block: 0rem 0.5rem;
+    margin-inline: 3% 3%;
+    border-color: gray;
+    border-width: 1px;
+    border-radius: 0.2rem;
+    padding-inline: 0.3rem 0;
+  }
+}
