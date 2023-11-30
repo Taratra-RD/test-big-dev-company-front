@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/PostForm.css";
 import { MdClose } from "react-icons/md";
 import axiosAuth from "../../../api/axiosAuth";
 import { api } from "../../../api/api";
+import useGetToken from "../../../hooks/useGetToken";
 
 export default function PostForm({ setShowPostForm }) {
   const [newPost, setNewPost] = useState({});
+  const { decode } = useGetToken();
 
-  const addPost = () => {
+  const addPost = (e) => {
+    e.preventDefault();
+    console.log(newPost);
     axiosAuth
       .post(api + "/post", newPost)
       .then((res) => {
@@ -16,6 +20,10 @@ export default function PostForm({ setShowPostForm }) {
       })
       .catch((err) => console.log(err));
   };
+
+  useEffect(() => {
+    decode && setNewPost((prevState) => ({ ...prevState, user_id: decode.id }));
+  }, []);
 
   return (
     <div className="post--form">
@@ -29,7 +37,7 @@ export default function PostForm({ setShowPostForm }) {
         <MdClose onClick={() => setShowPostForm(false)} />
       </div>
 
-      <form className="form">
+      <form className="form" onSubmit={addPost}>
         <div className="form--title">
           <input
             type="text"

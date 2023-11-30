@@ -10,7 +10,7 @@ export default function useGetPost() {
       .get(api + "/post")
       .then((res) => setPosts(res.data.result))
       .catch((err) => console.log(err));
-  }, []);
+  }, [posts]);
 
   return { posts };
 }
