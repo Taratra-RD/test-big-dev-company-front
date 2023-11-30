@@ -7,7 +7,7 @@ import axiosAuth from "../../../api/axiosAuth";
 import { api } from "../../../api/api";
 import useGetToken from "../../../hooks/useGetToken";
 
-export default function Post({ post }) {
+export default function Post({ post, setNewComment, setPostForComment }) {
   const { decode } = useGetToken();
   const [like, setLike] = useState(false);
   const date1 = new Date();
@@ -30,6 +30,14 @@ export default function Post({ post }) {
     }
   }
 
+  const showComment = (id) => {
+    setPostForComment(true);
+    setNewComment({
+      post_id: id,
+      user_id: decode && decode.id,
+    });
+  };
+
   const handleLike = (id) => {
     axiosAuth
       .post(api + "/like/" + id, { user_id: decode.id })
@@ -43,7 +51,7 @@ export default function Post({ post }) {
   useEffect(() => {}, [like]);
 
   return (
-    <div className="post">
+    <div className="post" onClick={() => showComment(post && post.id)}>
       <div className="post--head">
         <span className="post--name">{post && post.username}</span>
         <span className="creation--date">
