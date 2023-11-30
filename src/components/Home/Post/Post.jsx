@@ -6,29 +6,18 @@ import { BiLike, BiSolidLike } from "react-icons/bi";
 import axiosAuth from "../../../api/axiosAuth";
 import { api } from "../../../api/api";
 import useGetToken from "../../../hooks/useGetToken";
+import { getElapsedTime } from "../../../hooks/services";
 
-export default function Post({ post, setNewComment, setPostForComment }) {
+export default function Post({
+  post,
+  setNewComment,
+  setPostForComment,
+  newComment,
+}) {
   const { decode } = useGetToken();
-  const [like, setLike] = useState(false);
+  const [like, setLike] = useState();
+  const [numberComment, setNumberComment] = useState(0);
   const date1 = new Date();
-
-  function getElapsedTime(date1, date2) {
-    const timeDifference = Math.abs(date1 - date2);
-
-    const seconds = Math.floor(timeDifference / 1000);
-    if (seconds >= 86400) {
-      const days = Math.floor(seconds / 86400);
-      return `${days} day${days !== 1 ? "s" : ""}`;
-    } else if (seconds >= 3600) {
-      const hours = Math.floor(seconds / 3600);
-      return `${hours} hour${hours !== 1 ? "s" : ""}`;
-    } else if (seconds >= 60) {
-      const minutes = Math.floor(seconds / 60);
-      return `${minutes} minute${minutes !== 1 ? "s" : ""}`;
-    } else {
-      return `${seconds} second${seconds !== 1 ? "s" : ""}`;
-    }
-  }
 
   const showComment = (id) => {
     setPostForComment(true);
@@ -42,13 +31,18 @@ export default function Post({ post, setNewComment, setPostForComment }) {
     axiosAuth
       .post(api + "/like/" + id, { user_id: decode.id })
       .then((res) => {
-        setLike(!like);
+        setLike(res.data.result[0] && res.data.result[0].choice);
         alert("You have cliked on Like !");
       })
       .catch((err) => console.log(err));
   };
 
-  useEffect(() => {}, [like]);
+  useEffect(() => {
+    axiosAuth
+      .post(api + "/comment/get", { post_id: post && post.id })
+      .then((res) => setNumberComment(res.data.result.length))
+      .catch((err) => console.log(err));
+  }, [like, post]);
 
   return (
     <div className="post" onClick={() => showComment(post && post.id)}>
@@ -69,7 +63,7 @@ export default function Post({ post, setNewComment, setPostForComment }) {
             <span>{post && post.like_number}</span>
           </div>
           <div>
-            <span>5</span>
+            <span>{numberComment}</span>
             <MdModeComment className="span" />
           </div>
         </div>

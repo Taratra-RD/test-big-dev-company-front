@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./css/Auth.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axiosAuth from "../../api/axiosAuth";
 import { api } from "../../api/api";
 
@@ -60,6 +60,7 @@ export default function Register() {
             </div>
             {error && <div style={{ color: "red" }}>{error}</div>}
           </form>
+          <Link to="/Login">Login</Link>
         </div>
       </div>
     </div>

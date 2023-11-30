@@ -1,14 +1,48 @@
 .home {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
   width: 80vw;
   padding-inline: 10vw 10vw;
+  position: relative;
 }
 
 .home--left {
   position: relative;
+  width: 60%;
+}
+
+.home--right {
+  margin-left: 5%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.username--logo {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: black;
+  margin-inline: 0.3rem 1rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  padding-block: 0 0.2rem;
+}
+
+.username {
+  font-size: 22px;
+}
+
+.home--right--body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: 0 2vh;
 }
 
 .home--post--form {
@@ -23,4 +57,10 @@
   font-size: 16px;
   border-radius: 0.3rem;
   border: 1px solid grey;
+}
+
+.home--comment--list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

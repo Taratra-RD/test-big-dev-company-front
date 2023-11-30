@@ -2,7 +2,11 @@ import React from "react";
 import useGetPost from "../../../hooks/useGetPost";
 import Post from "./Post";
 
-export default function PostList({ setPostForComment, setNewComment }) {
+export default function PostList({
+  setPostForComment,
+  setNewComment,
+  newComment,
+}) {
   const { posts } = useGetPost();
   return (
     <div className="post--list">
@@ -12,6 +16,7 @@ export default function PostList({ setPostForComment, setNewComment }) {
           key={index}
           setNewComment={setNewComment}
           setPostForComment={setPostForComment}
+          newComment={newComment}
         />
       ))}
     </div>
