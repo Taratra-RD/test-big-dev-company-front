@@ -13,3 +13,11 @@ npm install
 # Lancer l'application en mode production
 
 npm start
+
+# Quelques chose à améliorer
+
+Le design est bof
+le fonction like n'est pas au point
+la modularité de l'appli n'est pas au point
+l'implémentation d'un profil utilisateur pour voir les historique d'activité
+l'impélémentation du fonction "DELETE"
